@@ -1,0 +1,200 @@
+<!doctype html><html class=side-by ><title>*MediaElement.js player</title>
+
+<link rel=stylesheet href=
+"//cdn.jsdelivr.net/mediaelement/2.13.1/mediaelementplayer.css" />
+<style>
+body { background: #fdfdfd; color: #222; }
+.mejs-captions-layer { font-size: 1.4em; }
+
+
+/* TODO: separate stylesheet.
+*/
+.mejs-timedtranscript {
+  width: 610px;
+  height: 8em;
+  font: .98em/1.7 sans-serif;
+  background: #f0f0f0;
+  color: #555;
+  overflow-y: scroll;
+  padding: 4px 14px;
+  border: 1px solid #ccc;
+}
+.mejs-timedtranscript, .mejs-container {
+  border-radius: 3px;
+}
+.mejs-timedtranscript input {
+  font-size: .92em;
+  padding: 0 6px;
+}
+.mejs-timedtranscript span {
+  x-outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.mejs-timedtranscript [role=button]:hover,
+.mejs-timedtranscript [role=button]:focus {
+  outline: 2px dotted rgb(44,124,145);
+  background: #fdfdfd;
+  color: #111;
+  cursor: pointer;
+}
+.mejs-timedtranscript .hi, .mejs-timedtranscript .hi:focus {
+  outline: 2px solid rgb(78,183,212) /*darkorange*/;
+  background: #fdfdfd;
+  color: #111;
+}
+/*rgba(44,124,145,0.8), rgba(78,183,212,0.8)*/
+
+.side-by .mejs-container, .side-by .mejs-timedtranscript {
+  display: inline-block;
+}
+.side-by .mejs-timedtranscript {
+  height: 352px;
+  width: 18em;
+}
+</style>
+
+
+<script src=
+"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src=
+"//cdn.jsdelivr.net/mediaelement/2.13.1/mediaelement-and-player.js"></script>
+<script src="assets/mep-oup-feature-timedtranscript.js"></script>
+<!--<script src=
+"//iet-embed-acct.open.ac.uk/dev/mediaelement-ext/js/mep-oup-feature-timedtranscript.js"></script>-->
+
+
+<body>
+
+<h1>Interactive Transcript demo</h1>
+
+<p>Try out the interactive transcript by:
+<ol>
+  <li> Pressing play and watching the highlighted phrase;
+  <li> Clicking on a phrase and seeing the media player seek to the appropriate spot;
+  <li> Entering a search term...
+</ol>
+
+
+<video width="640" height="360" controls poster=
+  "//podcast.open.ac.uk/feeds/student-experiences/OULIFE_student_00147.jpg">
+  <source type="video/mp4" src=
+    "//podcast.open.ac.uk/feeds/student-experiences/openings-being-an-ou-student.m4v">
+  <track kind="subtitles" data-tt="1" label="Timed transcript (word-level)" srclang="en" type="text/vtt" src="assets/openings-captions-words.vtt">
+</video>
+<!--
+<video width="640" height="360" x-height="480" poster=
+"//podcast.open.ac.uk/feeds/2846/ou_3words_conform_edit1_still_02846_31654_std.jpg" X-crossorigin=true>
+<source src=
+"//podcast.open.ac.uk/feeds/2846/20140408T132901_OU_3WORDS_CONFORM_EDIT3_EEP_v001.m4v">
+<track kind="subtitles" data-tt="1" label="Timed transcript (word-level)" srclang="en" type="text/vtt" src="assets/openings-captions.vtt">
+<!-|-<track kind="subtitles" srclang="en" type="text/vtt" src="//mediaplayer.open.edu/timedtext/webvtt?url=http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-being-an-ou-student.xml" />-|->
+</video>
+-->
+
+<div id="transcript"></div>
+
+
+
+<script>
+var player = $('video,audio').mediaelementplayer;
+$('video,audio').mediaelementplayer({
+
+  transcriptSelector: '#transcript',
+
+  //TODO: auto-scroll is a bit buggy - disable!
+  transcriptAutoScroll: false,
+
+  features: [
+'playpause','progress','current','duration','tracks','volume','fullscreen', 'timedtranscript'],
+
+  toggleCaptionsButtonWhenOnlyOne: true,
+  alwaysShowControls: true
+});
+</script>
+
+
+<script>
+$("body").on("player.MediaElement.js", "#mep_0", function (ev) {
+  console.log(">>On event", ev);
+});
+
+
+$("video, audio").on("loadedmetadata", function (event) {
+  var
+	t = event.target,
+	meta = {
+	  _extra: {
+		title: "Student views of the OU",
+		collection: "The Student Experience",
+		theme: "oup-light",
+		variant: "podcast",
+		//_mejs: mejs,
+		engine: window.mejs ? "MediaElement/" + mejs.version : null,
+		jslib: window.mejs && mejs.$.fn.jquery ? "jQuery/" + mejs.$.fn.jquery : null
+	  },
+	  _mid: "student-experiences/db6cc60d6b",
+	  _mtype: t.localName,  //"audio" or "video"
+	  autoplay: t.autoplay,
+	  currentSrc: t.currentSrc,
+	  currentTime: t.currentTime, //0
+	  controls: t.controls,
+	  duration: t.duration,
+	  muted: t.muted,
+	  poster: t.poster,
+	  preload: t.preload,
+	  textTracks: t.textTracks,
+	  videoHeight: t.videoHeight,
+	  videoWidth: t.videoWidth,
+	  volume: t.volume
+	};
+  console.log(">>Meta", meta, event);
+});
+
+
+$("video, audio").on("play pause", function (event) {
+  var
+	t = event.target,
+	meta = {
+	  _mid: "student-experiences/db6cc60d6b",
+	  //currentSrc: t.currentSrc,
+	  currentTime: t.currentTime,
+	  duration: t.duration,
+	};
+  console.log(">>Play/pause", meta, event);
+});
+
+/*setTimeout(function () {
+  var events = $._data($("#mep_0")[0], "events");
+  console.log(">>Bound events", events);
+}, 3000);*/
+</script>
+
+
+
+
+
+<pre>
+
+
+
+Nick Freear, 26 June 2014 | https://gist.github.com/nfreear/905453fb86124bcd3f38
+
+* TODO: switch to the MediaElement example media and caption files.
+* Compatibility: tested mostly on Chrome. Other browsers may work!
+* http://mediaelementjs.com
+
+* http://www.open.ac.uk/courses/what-study-like
+* http://podcast.open.ac.uk/feeds/2846/player.xml
+* http://podcast.open.ac.uk/pod/2846/#!b197338983
+* http://mediaplayer.open.edu/popup/pod/student-experiences/db6cc60d6b
+* https://github.com/johndyer/mediaelement/blob/master/src/js/mep-feature-tracks.js
+* http://www.w3.org/2010/05/video/mediaevents.html
+
+
+<!-- :: player.xml ::
+<media:content medium="video" isDefault="true" url="http://media-podcast.open.ac.uk/feeds/2846/20140408T132806_OU_3WORDS_CONFORM_EDIT2_EEP_v001.m4v" fileSize="3042163" type="video/x-m4v" duration="36.5600">
+<oupod:iframe-oump>
+<iframe src="http://mediaplayer.open.ac.uk/embed/pod/2846/b197338983" height="270" width="480" frameborder="0" allowfullscreen mozallowfullscreen webkitallowfullscreen ></iframe>
+</oupod:iframe-oump>
+-->
+</pre>

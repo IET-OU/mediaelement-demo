@@ -1,0 +1,146 @@
+﻿<!doctype html><html><meta charset="utf-8" />
+
+<base href="../mediaelement-ry1/" />
+
+
+<title>*HTML5 MediaElement</title>
+
+<script src="build/jquery.js"></script>
+
+<script src="local-build/mediaelement-and-player.js"></script>
+
+<script data-src="testforfiles.js"></script>
+
+<link rel="stylesheet" href="local-build/mediaelementplayer.css" />
+
+
+<style>
+.mejs-captions-layer[lang *= "-audiodescription"] .mejs-captions-text {
+  color: pink;
+  background-color: rgba(10, 10, 10, 0.8);  /*rgba(20, 20, 20, 0.5)*/
+  background-image: url(http://www.queens-theatre.co.uk/images/audio-description-icon-cutout.png);
+  background-position: right;
+  background-repeat: no-repeat;
+  padding-right: 42px;
+}
+.mejs-captions-layer[lang *= "-transcript"],
+.mejs-controls .mejs-captions-button .mejs-captions-selector ul li[class *= "-transcript"] {
+  display: none;
+}
+</style>
+
+
+<h1>MediaElementPlayer.js - Audio description (text)</h1>
+
+<h2>1. Single MP4 File</h2>
+
+
+<!-- simple single file method -->
+<video width="640" height="360"
+	id="player1" poster="../media/ILO/hqdefault.jpg" 
+	controls="controls" preload="none">
+<!-- MP4 source must come first for iOS -->
+	<source type="video/mp4" src="../media/ILO/The Millennium Development Goals and beyond- An ILO perspective.mp4" />
+	<!-- WebM for Firefox 4 and Opera -->
+	<source type="video/webm" src="../media/ILO/The Millennium Development Goals and beyond- An ILO perspective.mp4" />
+
+	<track
+		srclang="x-en-audiodescription" kind="subtitles" type="text/vtt" label="Audio description (en)"
+		src="../media/ILO/The Millennium Development Goals and beyond- An ILO perspective.srt#AD" />
+
+	<link rel="audiodescribe" type="audio/mp3" hreflang="en" href="media-ClipId%3D7886%26Movie%3D1602.mp3" />
+
+	<!--
+	<track
+		srclang="x-en-transcript" kind="subtitles" type="text/vtt"
+		src="../mediaelement-files/mediaelement.srt#TR" label="Transcript (en)" />
+	<track srclang="en" kind="subtitles" type="text/vtt" src="../mediaelement-files/mediaelement.srt" />
+	-->
+</video>
+
+<span id="player1-mode"></span>
+
+<p><b>Note</b>: if you are working with local files, you'll need to add your working directory
+to the <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html">Flash Global Security Settings</a>.</p>
+
+
+
+...
+
+
+<script>
+$("audio, video").mediaelementplayer({
+	///startLanguage: "x-en-audiodescription",  // "Select" a track
+
+	alwaysShowControls: true,  //NDF:
+
+	success: function (player, node) {
+	//success: function (media, node, player) {
+		var $node = $(player).closest(".mejs-container"); //$("#" + node.id);
+
+		$('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+
+		$node.attr("lang", mejs.i18n.locale.language);
+		$("html").attr("lang", mejs.i18n.locale.language);
+
+		//log(media, node, player, mejs);
+		log(player, node, mejs);
+
+		$(".mejs-captions-selector li", $node).each(function () {
+			var lang = $("input[type = radio]", $(this)).val();
+
+			$(this).addClass("lang-" + lang);
+
+			log("Track detected:", lang);
+		});
+
+		$(".mejs-captions-selector", $node).on("click change", function (ev) {
+			var $cap_layer = $(".mejs-captions-layer", $node),
+				$sel = $("input[type = radio]:checked", $(this));
+
+			log("Switched 'captions' track", ev.type, ev, $sel.val());
+
+			$cap_layer.attr({
+				"lang": $sel.val(),
+				"data-lang": $sel.val()
+			});
+
+			if ($sel.val().match(/x-(.*)-audiodescription/)) {
+				$cap_layer.attr({
+					"aria-live": "assertive",
+					"aria-relevant": "text"
+				})
+				//.css("display", "block");
+
+				log("Captions type: Audio description", $sel.val());
+
+			} else {
+				$cap_layer.attr({
+					"aria-live": "off"
+				});
+
+				log("Captions type: Other", $sel.val());
+			}
+		});
+
+
+		// Initialize Audio description ?!
+		$(".mejs-captions-selector .lang-x-en-audiodescription input", $node)
+			.attr("checked", true)
+			//.trigger("click");
+			.trigger("change");
+	}
+});
+
+
+// Too late!
+log(">>i18n (2)", mejs.i18n.getLanguage(), mejs.i18n);
+
+
+function log(s) {
+  window.console && console.log(arguments.length > 1 ? arguments : s);
+}
+</script>
+
+
+</html>
