@@ -1,73 +1,17 @@
-﻿<!DOCTYPE html><html>
-	<meta charset="utf-8" />
-	<title>HTML5 MediaElement</title>	
+<!doctype html><meta charset="utf-8" />
 
-<script src="../build/jquery.js"></script>
-<script id="mejs-i18n-init">
-var mejs = mejs || {};
-
-(function () {
-
-	var language = get_lang();
-
-	mejs.i18n = {
-		locale: {
-			language: language,
-			strings: { }
-		}
-	}; /* */
-
-	//log(mejs.i18n);
-
-	if (language) {
-		$("#mejs-i18n-init").after(
-			"<script src='../src/js/me-i18n-locale-" +
-			language.toLowerCase() + ".js'></sc" + "ript>"
-		);
-	}
-
-	/*$("#mejs-i18n-init").after("<script/>").next().attr({
-		src: "../src/js/me-i18n-locale-" + language + ".js"
-	});*/
+<base href="../mediaelement-i18n/" />
 
 
-	function _get(key, _default) {
-    	_default = _default || "";  //Was: null
-	    var q = window.location.search,
-    		re = new RegExp("[&?]" + key + "=([^&]+)"),
-    		value = re.exec(q);
-    	//log("Get param", key, value ? value[1] : _default);
-	    return value ? value[1] : _default;
-	}
+<title>*MediaElement - tooltips</title>
 
-	function get_lang() {
-		// RFC 5646: https://tools.ietf.org/html/rfc5646
-        // Examples: en, zh-CN, zh-Hans-CN, sr-Latn-RS, es-419, x-private
-		var ietf_lang_re = /^(x\-)?[a-z]{2,}(\-\w{2,})?(\-\w{2,})?$/,
-			lang = _get("lang").match(ietf_lang_re); //.match(/^[a-z]{2}(\-[a-zA-Z]{2,})?$/);
-		//log(lang);
-		return lang && lang[0];
-	}
+<script src="build/jquery.js"></script>
+<script src="local-build/mediaelement-and-player.js"></script>
 
-})();
+<script data-src="testforfiles.js"></script>
+<link rel="stylesheet" href="local-build/mediaelementplayer.css" />
 
-function log(s) {
-	window.console && console.log(arguments.length > 1 ? arguments : s);
-}
-</script>
-<!--<script src="../src/js/me-i18n-locale-zh-cn.js"></script>-->
-<script>
-log(">>i18n (1)", mejs.i18n);
-</script>
-
-
-	
-	<script src="../local-build/mediaelement-and-player.min.js"></script>
-
-	<script src="testforfiles.js"></script>	
-	<link rel="stylesheet" href="../local-build/mediaelementplayer.min.css" />
-
-	<style>
+<style>
 	/* :focus for accessibility */
 	.mejs-controls .mejs-button button:focus,
 	.mejs-controls .mejs-button button:hover {
@@ -75,6 +19,7 @@ log(">>i18n (1)", mejs.i18n);
 		position: relative;
 		font-size: medium;
 	}
+
 	.mejs-controls .mejs-button button[aria-label]:focus:after,
 	.mejs-controls .mejs-button button[aria-label]:hover:after {
 		content: attr(aria-label);
@@ -95,80 +40,49 @@ log(">>i18n (1)", mejs.i18n);
 .mejs-controls .mejs-fullscreen-button button[aria-label]:hover:after {
 	left: -4.2em;
 }
-	</style>
-</head>
-<body>
+</style>
+
 
 <h1>MediaElementPlayer.js - LOCAL</h1>
 
-<h2>1. Single MP4 File</h2>
+<h2>CSS tooltips demo</h2>
 
-<code><pre>
-&lt;video width="640" height="360" src="../media/echo-hereweare.mp4" type="video/mp4" 
-	id="player1" poster="../media/echo-hereweare.jpg" 
-	controls="controls" preload="none"&gt;&lt;/video&gt;
-</pre></code>
 
 <!-- simple single file method -->
 <video width="640" height="360"
-	id="player1" poster="../media/echo-hereweare.jpg" 
+	id="player1" poster="media/echo-hereweare.jpg"
 	controls="controls" preload="none">
 <!-- MP4 source must come first for iOS -->
-	<source type="video/mp4" src="../media/echo-hereweare.mp4" />
+	<source type="video/mp4" src="media/echo-hereweare.mp4" />
 	<!-- WebM for Firefox 4 and Opera -->
-	<source type="video/webm" src="../media/echo-hereweare.webm" />
+	<source type="video/webm" src="media/echo-hereweare.webm" />
 	<!-- OGG for Firefox 3 -->
-	<source type="video/ogg" src="../media/echo-hereweare.ogv" />
+	<source type="video/ogg" src="media/echo-hereweare.ogv" />
 </video>
 	
 <span id="player1-mode"></span>
 
-<p><b>Note</b>: if you are working with local files, you'll need to add your working directory
-to the <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html">Flash Global Security Settings</a>.</p>
 
-
-
-<h2>2. Multi-Codec with no JavaScript fallback player</h2>
-
-...
-
-<span id="player2-mode"></span>
 
 <script>
-//mejs.i18n.locale.language = 'zh-CN';
-//mejsL10n.language = 'zh-cn';
-
 $('audio,video').mediaelementplayer({
-	//startLanguage: 'zh',
-	//mode: 'shim',
 	alwaysShowControls: true,  //NDF:
 	success: function(player, node) {
 		$('#' + node.id + '-mode').html('mode: ' + player.pluginType);
 
-		$(player).closest(".mejs-container").attr("lang", mejs.i18n.locale.language);
-		$("html").attr("lang", mejs.i18n.locale.language);
+		$(player).closest(".mejs-container").attr("lang", mejs.i18n.getLanguage());
+		$("html").attr("lang", mejs.i18n.getLanguage());
 
 		log(player, mejs);
 	}
 });
 
 
-// Too late!
-log(">>i18n (2)", mejs.i18n.getLanguage(), mejs.i18n);
+function log(s) {
+	window.console && console.log(arguments.length > 1 ? arguments : s);
+}
+
+log(">>i18n (1)", mejs.i18n);
 </script>
 
-
-
-<input type="button" id="stopall" value="Stop all">
-
-<script>
-$('#stopall').click(function() {
-    $('video, audio').each(function() {
-          $(this)[0].player.pause();		  
-    });
-});
-</script>
-
-
-</body>
 </html>
