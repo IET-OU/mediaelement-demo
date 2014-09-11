@@ -1,7 +1,19 @@
-<!doctype html><html class=side-by ><title>*MediaElement.js player</title>
+<!doctype html><html class="side-by" ><meta charset="utf-8" />
 
-<link rel=stylesheet href=
-"//cdn.jsdelivr.net/mediaelement/2.13.1/mediaelementplayer.css" />
+<base href="../mediaelement-transcript/" />
+
+
+<title>*HTML5 MediaElement</title>
+
+<script src="build/jquery.js"></script>
+<script src="local-build/mediaelement-and-player.js"></script>
+
+<script src="src/js/mep-feature-timedtranscript.js"></script>
+
+<script data-src="demo/testforfiles.js"></script>
+
+<link rel="stylesheet" href="local-build/mediaelementplayer.css" />
+
 <style>
 body { background: #fdfdfd; color: #222; }
 .mejs-captions-layer { font-size: 1.4em; }
@@ -37,7 +49,7 @@ body { background: #fdfdfd; color: #222; }
   background: #f0f0f0;
   color: #555;
   overflow-y: scroll;
-  padding: 4px 14px;
+  padding: 4px 12px;
   border: 1px solid #ccc;
 }
 .mejs-timedtranscript, .mejs-container {
@@ -75,17 +87,9 @@ body { background: #fdfdfd; color: #222; }
 </style>
 
 
-<script src=
-"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src=
-"//cdn.jsdelivr.net/mediaelement/2.13.1/mediaelement-and-player.js"></script>
-<script data-src="../mediaelement-iet/local-build/"></script>
-<script src="../mediaelement-transcript/src/js/mep-feature-timedtranscript.js"></script>
+<h1>MediaElementPlayer.js</h1>
 
-
-<body>
-
-<h1>Interactive Transcript demo</h1>
+<h2>Interactive Transcript demo</h2>
 
 <p>Try out the interactive transcript by:
 <ol>
@@ -100,8 +104,8 @@ body { background: #fdfdfd; color: #222; }
   <source type="video/mp4" src=
     "//podcast.open.ac.uk/feeds/student-experiences/openings-being-an-ou-student.m4v" />
 
-  <track kind="subtitles" srclang="en" type="text/vtt" src="assets/openings-captions.vtt" />
-  <track kind="subtitles" srclang="en-GB-x-transcript" label="Timed transcript (word-level)" type="text/vtt" src="assets/openings-captions-words.vtt" />
+  <track kind="subtitles" srclang="en" type="text/vtt" src="../mediaelement-demo/media/ou-student-experiences-openings-captions.srt" />
+  <track kind="subtitles" srclang="en-GB-x-transcript" label="Timed transcript (word-level)" type="text/vtt" src="../mediaelement-demo/media/ou-student-experiences-openings-captions-words.srt" />
 </video>
 
 
@@ -110,8 +114,6 @@ body { background: #fdfdfd; color: #222; }
 
 
 <script>
-var player = $('video,audio').mediaelementplayer;
-
 $('video,audio').mediaelementplayer({
 
   transcriptSelector: '#transcript',
@@ -121,7 +123,9 @@ $('video,audio').mediaelementplayer({
   transcriptAutoScroll: false,
 
   features: [
-'playpause','progress','current','duration','tracks', 'timedtranscript', 'volume','fullscreen'],
+    'playpause', 'progress', 'current', 'duration', 'tracks',
+    'timedtranscript', 'volume', 'fullscreen'
+  ],
 
   toggleCaptionsButtonWhenOnlyOne: true,
   alwaysShowControls: true
@@ -149,11 +153,5 @@ Nick Freear, 26 June 2014 | https://gist.github.com/nfreear/905453fb86124bcd3f38
 * https://github.com/johndyer/mediaelement/blob/master/src/js/mep-feature-tracks.js
 * http://www.w3.org/2010/05/video/mediaevents.html
 
-
-<!-- :: player.xml ::
-<media:content medium="video" isDefault="true" url="http://media-podcast.open.ac.uk/feeds/2846/20140408T132806_OU_3WORDS_CONFORM_EDIT2_EEP_v001.m4v" fileSize="3042163" type="video/x-m4v" duration="36.5600">
-<oupod:iframe-oump>
-<iframe src="http://mediaplayer.open.ac.uk/embed/pod/2846/b197338983" height="270" width="480" frameborder="0" allowfullscreen mozallowfullscreen webkitallowfullscreen ></iframe>
-</oupod:iframe-oump>
--->
 </pre>
+</html>
