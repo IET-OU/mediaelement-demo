@@ -7,6 +7,27 @@ body { background: #fdfdfd; color: #222; }
 .mejs-captions-layer { font-size: 1.4em; }
 
 
+
+.mejs-controls .mejs-captions-button .mejs-captions-selector ul li[class *= "-x-transcript"] {
+  display: none;
+}
+
+/* Button - almost!! */
+.mejs-controls .mejs-transcript-button button {
+  background-image: none;
+}
+.mejs-controls .mejs-transcript-button button:after {
+  content: "T";
+  color: #fff;
+  font: 16px "Times New Roman",serif;
+  display: block;
+  line-height: 16px;
+  height: 16px;
+  width: 16px;
+}
+
+
+
 /* TODO: separate stylesheet.
 */
 .mejs-timedtranscript {
@@ -58,9 +79,8 @@ body { background: #fdfdfd; color: #222; }
 "//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src=
 "//cdn.jsdelivr.net/mediaelement/2.13.1/mediaelement-and-player.js"></script>
-<script src="assets/mep-oup-feature-timedtranscript.js"></script>
-<!--<script src=
-"//iet-embed-acct.open.ac.uk/dev/mediaelement-ext/js/mep-oup-feature-timedtranscript.js"></script>-->
+<script data-src="../mediaelement-iet/local-build/"></script>
+<script src="../mediaelement-transcript/src/js/mep-feature-timedtranscript.js"></script>
 
 
 <body>
@@ -78,18 +98,12 @@ body { background: #fdfdfd; color: #222; }
 <video width="640" height="360" controls poster=
   "//podcast.open.ac.uk/feeds/student-experiences/OULIFE_student_00147.jpg">
   <source type="video/mp4" src=
-    "//podcast.open.ac.uk/feeds/student-experiences/openings-being-an-ou-student.m4v">
-  <track kind="subtitles" data-tt="1" label="Timed transcript (word-level)" srclang="en" type="text/vtt" src="assets/openings-captions-words.vtt">
+    "//podcast.open.ac.uk/feeds/student-experiences/openings-being-an-ou-student.m4v" />
+
+  <track kind="subtitles" srclang="en" type="text/vtt" src="assets/openings-captions.vtt" />
+  <track kind="subtitles" srclang="en-GB-x-transcript" label="Timed transcript (word-level)" type="text/vtt" src="assets/openings-captions-words.vtt" />
 </video>
-<!--
-<video width="640" height="360" x-height="480" poster=
-"//podcast.open.ac.uk/feeds/2846/ou_3words_conform_edit1_still_02846_31654_std.jpg" X-crossorigin=true>
-<source src=
-"//podcast.open.ac.uk/feeds/2846/20140408T132901_OU_3WORDS_CONFORM_EDIT3_EEP_v001.m4v">
-<track kind="subtitles" data-tt="1" label="Timed transcript (word-level)" srclang="en" type="text/vtt" src="assets/openings-captions.vtt">
-<!-|-<track kind="subtitles" srclang="en" type="text/vtt" src="//mediaplayer.open.edu/timedtext/webvtt?url=http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-being-an-ou-student.xml" />-|->
-</video>
--->
+
 
 <div id="transcript"></div>
 
@@ -97,76 +111,21 @@ body { background: #fdfdfd; color: #222; }
 
 <script>
 var player = $('video,audio').mediaelementplayer;
+
 $('video,audio').mediaelementplayer({
 
   transcriptSelector: '#transcript',
+  transcriptLoadShow: true,
 
   //TODO: auto-scroll is a bit buggy - disable!
   transcriptAutoScroll: false,
 
   features: [
-'playpause','progress','current','duration','tracks','volume','fullscreen', 'timedtranscript'],
+'playpause','progress','current','duration','tracks', 'timedtranscript', 'volume','fullscreen'],
 
   toggleCaptionsButtonWhenOnlyOne: true,
   alwaysShowControls: true
 });
-</script>
-
-
-<script>
-$("body").on("player.MediaElement.js", "#mep_0", function (ev) {
-  console.log(">>On event", ev);
-});
-
-
-$("video, audio").on("loadedmetadata", function (event) {
-  var
-	t = event.target,
-	meta = {
-	  _extra: {
-		title: "Student views of the OU",
-		collection: "The Student Experience",
-		theme: "oup-light",
-		variant: "podcast",
-		//_mejs: mejs,
-		engine: window.mejs ? "MediaElement/" + mejs.version : null,
-		jslib: window.mejs && mejs.$.fn.jquery ? "jQuery/" + mejs.$.fn.jquery : null
-	  },
-	  _mid: "student-experiences/db6cc60d6b",
-	  _mtype: t.localName,  //"audio" or "video"
-	  autoplay: t.autoplay,
-	  currentSrc: t.currentSrc,
-	  currentTime: t.currentTime, //0
-	  controls: t.controls,
-	  duration: t.duration,
-	  muted: t.muted,
-	  poster: t.poster,
-	  preload: t.preload,
-	  textTracks: t.textTracks,
-	  videoHeight: t.videoHeight,
-	  videoWidth: t.videoWidth,
-	  volume: t.volume
-	};
-  console.log(">>Meta", meta, event);
-});
-
-
-$("video, audio").on("play pause", function (event) {
-  var
-	t = event.target,
-	meta = {
-	  _mid: "student-experiences/db6cc60d6b",
-	  //currentSrc: t.currentSrc,
-	  currentTime: t.currentTime,
-	  duration: t.duration,
-	};
-  console.log(">>Play/pause", meta, event);
-});
-
-/*setTimeout(function () {
-  var events = $._data($("#mep_0")[0], "events");
-  console.log(">>Bound events", events);
-}, 3000);*/
 </script>
 
 
