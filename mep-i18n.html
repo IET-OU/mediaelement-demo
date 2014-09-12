@@ -1,8 +1,15 @@
-<!doctype html><meta charset="utf-8"><title>*MediaElement - i18n</title>
+<!doctype html><html><meta charset="utf-8"><title>MediaElement - i18n</title>
 
 <base href="../mediaelement-i18n/" />
 
+<!--
+  1. Include the jQuery Javascript.
+-->
 <script src="build/jquery.js"></script>
+
+<!--
+  2. Initialize the `mejs.i18n` Javascript object (statically, or dynamically as below).
+-->
 <script id="mejs-i18n-init-js">
 
 var mejs = mejs || {};
@@ -19,12 +26,14 @@ var mejs = mejs || {};
   };
 
   if (language) {
-    // Insert the translation JS after this one, before the main "mediaelement...js"
+    //<!-- 3. Insert the translation Javascript after this one (before the main "mediaelement...js"). Here we do it dynamically via JS. -->
     $("#mejs-i18n-init-js").after(
       "<script src='src/js/me-i18n-locale-" + language.toLowerCase() + ".js'></sc" + "ript>"
     );
   }
 
+
+  // Helper functions.
 
   function param_lang() {
     // RFC 5646: https://tools.ietf.org/html/rfc5646
@@ -51,7 +60,10 @@ function log(s) {
 log(">>i18n (1)", mejs.i18n);
 </script>
 
-	
+
+<!--
+  4. Include the "mediaelement player" Javascript.
+-->
 <script src="local-build/mediaelement-and-player.js"></script>
 
 
@@ -63,11 +75,11 @@ select, input { font-size: 1.1em; padding: 8px; x-min-height: 2em; x-min-width: 
 </style>
 
 
+<h1> MediaElementPlayer.js </h1> <h2> Internationalization </h1>
 
-<h1>MediaElement.js - internationalization</h1>
+<p>This is a demonstration of setting the user-interface language for the player (semi-)dynamically via Javascript.
 
-
-<form>
+<form id="lang-selector">
   <p><label>Language <select name="lang">
     <option value="" selected title=Default >English (en)</option>
     <option value="de">Deutsch/ German (de)</option>
@@ -96,11 +108,12 @@ select, input { font-size: 1.1em; padding: 8px; x-min-height: 2em; x-min-width: 
 <script>
 $('audio,video').mediaelementplayer({
 	alwaysShowControls: true,
+
 	success: function(player, node) {
 		$('#' + node.id + '-mode').html('mode: ' + player.pluginType);
 
 		$(player).closest(".mejs-container").attr("lang", mejs.i18n.getLanguage());
-		$("html").attr("lang", mejs.i18n.getLanguage());
+		//$("html").attr("lang", mejs.i18n.getLanguage());
 
 		log(player, mejs);
 	}
@@ -115,5 +128,12 @@ log(">>i18n (2)", mejs.i18n.getLanguage(), mejs.i18n);
 
 <pre>
 
-https://gist.github.com/nfreear/5c4762f8a8827cffe207
+* Original internationalization: Tim Latz & others, October 2012;
+* (Fixes: bug #1263 Nick Freear, August 2014).
+
+<!--
+  NDF, 6 August 2014
+  https://gist.github.com/nfreear/5c4762f8a8827cffe207
+-->
 </pre>
+</html>
