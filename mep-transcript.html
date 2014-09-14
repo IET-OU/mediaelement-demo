@@ -12,79 +12,10 @@
 
 <script data-src="demo/testforfiles.js"></script>
 
+
 <link rel="stylesheet" href="local-build/mediaelementplayer.css" />
+<link rel="stylesheet" href="../mediaelement-demo/css/mep-feature-timedtranscript.css" />
 
-<style>
-body { background: #fdfdfd; color: #222; }
-.mejs-captions-layer { font-size: 1.4em; }
-
-
-
-.mejs-controls .mejs-captions-button .mejs-captions-selector ul li[class *= "-x-transcript"] {
-  display: none;
-}
-
-/* Button - almost!! */
-.mejs-controls .mejs-transcript-button button {
-  background-image: none;
-}
-.mejs-controls .mejs-transcript-button button:after {
-  content: "T";
-  color: #fff;
-  font: 16px "Times New Roman",serif;
-  display: block;
-  line-height: 16px;
-  height: 16px;
-  width: 16px;
-}
-
-
-
-/* TODO: separate stylesheet.
-*/
-.mejs-timedtranscript {
-  width: 610px;
-  height: 8em;
-  font: .98em/1.7 sans-serif;
-  background: #f0f0f0;
-  color: #555;
-  overflow-y: scroll;
-  padding: 4px 12px;
-  border: 1px solid #ccc;
-}
-.mejs-timedtranscript, .mejs-container {
-  border-radius: 3px;
-}
-.mejs-timedtranscript input {
-  font-size: .92em;
-  padding: 0 6px;
-}
-.mejs-timedtranscript span {
-  x-outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-.mejs-timedtranscript [role=button]:hover,
-.mejs-timedtranscript [role=button]:focus {
-  outline: 2px dotted rgb(44,124,145);
-  background: #fdfdfd;
-  color: #111;
-  cursor: pointer;
-}
-.mejs-timedtranscript .hi, .mejs-timedtranscript .hi:focus {
-  outline: 2px solid rgb(78,183,212) /*darkorange*/;
-  background: #fdfdfd;
-  color: #111;
-}
-/*rgba(44,124,145,0.8), rgba(78,183,212,0.8)*/
-
-.side-by .mejs-container, .side-by .mejs-timedtranscript {
-  display: inline-block;
-}
-.side-by .mejs-timedtranscript {
-  height: 352px;
-  width: 18em;
-}
-</style>
 
 
 <h1>MediaElementPlayer.js</h1>
@@ -96,6 +27,7 @@ body { background: #fdfdfd; color: #222; }
   <li> Pressing play and watching the highlighted phrase;
   <li> Clicking on a phrase and seeing the media player seek to the appropriate spot;
   <li> Entering a search term...
+  <li> Pressing the "T" button in the control bar to show/hide the transcript;
 </ol>
 
 
@@ -139,11 +71,12 @@ $('video,audio').mediaelementplayer({
 <pre>
 
 
-
-Nick Freear, 26 June 2014 | https://gist.github.com/nfreear/905453fb86124bcd3f38
-
 * TODO: switch to the MediaElement example media and caption files.
 * Compatibility: tested mostly on Chrome. Other browsers may work!
+
+<!--
+Nick Freear, 26 June 2014 | https://gist.github.com/nfreear/905453fb86124bcd3f38
+
 * http://mediaelementjs.com
 
 * http://www.open.ac.uk/courses/what-study-like
@@ -152,6 +85,6 @@ Nick Freear, 26 June 2014 | https://gist.github.com/nfreear/905453fb86124bcd3f38
 * http://mediaplayer.open.edu/popup/pod/student-experiences/db6cc60d6b
 * https://github.com/johndyer/mediaelement/blob/master/src/js/mep-feature-tracks.js
 * http://www.w3.org/2010/05/video/mediaevents.html
-
+-->
 </pre>
 </html>

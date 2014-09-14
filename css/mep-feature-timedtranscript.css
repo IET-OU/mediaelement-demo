@@ -1,0 +1,76 @@
+/*
+  Stylesheet for Javascript plugin "mep-feature-timedtranscript"
+*/
+
+
+body { background: #fdfdfd; color: #222; }
+.mejs-captions-layer { font-size: 1.4em; }
+
+
+/* Captions track selector.
+*/
+.mejs-controls .mejs-captions-button .mejs-captions-selector ul li[class *= "-x-transcript"] {
+  display: none;
+}
+
+
+/* Button - almost!! */
+.mejs-controls .mejs-transcript-button button {
+  background-image: none;
+}
+.mejs-controls .mejs-transcript-button button:after {
+  content: "T";
+  color: #fff;
+  font: 16px "Times New Roman",serif;
+  display: block;
+  line-height: 16px;
+  height: 16px;
+  width: 16px;
+}
+
+
+
+/* Transcript panel.
+*/
+.mejs-timedtranscript {
+  width: 610px;
+  height: 8em;
+  font: .98em/1.7 sans-serif;
+  background: #f0f0f0;
+  color: #555;
+  overflow-y: scroll;
+  padding: 4px 12px;
+  border: 1px solid #ccc;
+}
+.mejs-timedtranscript, .mejs-container {
+  border-radius: 3px;
+}
+.mejs-timedtranscript input {
+  font-size: .92em;
+  padding: 0 6px;
+}
+.mejs-timedtranscript span {
+  x-outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.mejs-timedtranscript [role=button]:hover,
+.mejs-timedtranscript [role=button]:focus {
+  outline: 2px dotted rgb(44,124,145);
+  background: #fdfdfd;
+  color: #111;
+  cursor: pointer;
+}
+.mejs-timedtranscript .hi, .mejs-timedtranscript .hi:focus {
+  outline: 2px solid rgb(78,183,212) /*darkorange*/;
+  background: #fdfdfd;
+  color: #111;
+}
+/*rgba(44,124,145,0.8), rgba(78,183,212,0.8)*/
+
+.side-by .mejs-container, .side-by .mejs-timedtranscript {
+  display: inline-block;
+}
+.side-by .mejs-timedtranscript {
+  height: 352px;
+  width: 18em;
+}
