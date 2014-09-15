@@ -7,27 +7,10 @@ body { background: #fdfdfd; color: #222; }
 .mejs-captions-layer { font-size: 1.4em; }
 
 
-/* Captions track selector.
+/*
+  Transcript button: See,
+  mediaelement/src/css/mediaelementplayer.css
 */
-.mejs-controls .mejs-captions-button .mejs-captions-selector ul li[class *= "-x-transcript"] {
-  display: none;
-}
-
-
-/* Button - almost!! */
-.mejs-controls .mejs-transcript-button button {
-  background-image: none;
-}
-.mejs-controls .mejs-transcript-button button:after {
-  content: "T";
-  color: #fff;
-  font: 16px "Times New Roman",serif;
-  display: block;
-  line-height: 16px;
-  height: 16px;
-  width: 16px;
-}
-
 
 
 /* Transcript panel.
