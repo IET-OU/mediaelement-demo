@@ -1,0 +1,128 @@
+<!doctype html><html><meta charset="utf-8" />
+
+<base data-href="../mediaelement-head/" />	
+
+
+<title>*HTML5 MediaElement</title>
+
+<script src="../mediaelement-head/build/jquery.js"></script>
+<script src="../mediaelement-head/build/mediaelement-and-player.js"></script>
+
+<script data-src="demo/testforfiles.js"></script>
+
+<link rel="stylesheet" href="../mediaelement-head/build/mediaelementplayer.css" />
+
+
+<h1>MediaElementPlayer.js - Progress bar # 3</h1>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<p>
+
+
+<h2> Player 1 (special case) </h2>
+
+<video
+  id="player-no-speech"
+  width="640" height="360" controls="controls" preload="none" poster="../mediaelement-head/media/echo-hereweare.jpg">
+<!-- MP4 source must come first for iOS -->
+<source type="video/mp4" src="../mediaelement-head/media/echo-hereweare.mp4" />
+<track kind="subtitles" srclang="en" type="text/vtt" src="../mediaelement-head/media/mediaelement.srt" />
+</video>
+
+<span id="player-no-speech-mode"></span>
+
+
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+
+<h2> Player 2 (default) </h2>
+
+<video
+  id="player-default"
+  class="x-mejs-player"
+  width="640" height="360" controls="controls" preload="none" poster="media/OULIFE_student_00147.jpg">
+<source type="video/mp4" src="media/openings-being-an-ou-student.m4v" />
+<track kind="subtitles" srclang="en" type="text/vtt" src="media/ou-student-experiences-openings-captions.srt" />
+</video>
+
+
+
+<script>
+$('#player-no-speech').mediaelementplayer({
+
+    // This video is a special case.
+	tracksAriaLive: true,
+
+	startLanguage: 'en',
+
+	success: function (player, node) {
+		$('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+
+		log(player, mejs);
+	},
+	error: function (arg) {
+		log("Error.", arg);
+	}
+});
+
+
+$('#player-default').mediaelementplayer({
+	toggleCaptionsButtonWhenOnlyOne: true
+});
+
+
+// =========================================================
+
+/* FIXES
+*/
+if (window.location.href.match(/fix=1/)) {
+
+  $(".mejs-time-slider").attr("aria-live", "off");
+
+  // Special case!
+  $("#mep_0 .mejs-captions-layer > div").attr({
+    "aria-live": "assertive",
+    "role": "log",
+    "aria-atomic": false,
+
+    "data-TEST": 1
+  });
+
+  // Default!
+  $("#mep_1 .mejs-captions-layer > div").attr({
+    "aria-live": "off",
+    "role": "",
+    "aria-atomic": "",
+
+    "data-TEST": 2
+  });
+
+
+  log("Fixes", "mejs-time-slider: aria-live=off", "mejs-captions..: aria-live=off");
+}
+
+
+function log(s) {
+  window.console && console.log(arguments.length > 1 ? arguments : s);
+}
+</script>
+
+
+
+<pre>
+
+
+NDF, 12 November 2014.
+
+http://mediaplayer.open.edu/
+
+
+Special cases:
+
+1. The "subtitles" track is actually a text-audio description track, aimed at those who are blind. It contains text that is timed to be spoken by a screen reader when no one is speaking in the audio track of the video;
+
+2. The listener is struggling to hear the speech in the audio track of the video, for example, because of a strong accent. The listener mutes the audio, and uses TTS to read the subtitles aloud;
+
+3. A special case, where the video does not contain any spoken words, and a "subtitles" track is used to convey information. This is the case for "echo-hereweare.mp4" and "mediaelement.srt".
+
+</pre>
+</html>

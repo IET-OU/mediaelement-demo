@@ -1,10 +1,12 @@
 #!/usr/bin/env php
 <?php
 /**
-  Convert SRT/WebVTT subtitles/captions to an SRT word-level timed-transcript.
-
-  Nick Freear, 16 September 2014.
+* Convert SRT/WebVTT subtitles/captions to an SRT word-level timed-transcript.
+*
+* @copyright Nick Freear, 16 September 2014.
 */
+'cli' != php_sapi_name() ? die('403: CLI only') : 0;
+
 date_default_timezone_set( 'Europe/London' );
 
 
