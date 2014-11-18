@@ -15,8 +15,7 @@
 
 <h1>MediaElementPlayer.js - Progress bar # 3</h1>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-<p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<p>
 
 
 <h2> Player 1 (special case) </h2>
@@ -32,15 +31,13 @@
 <span id="player-no-speech-mode"></span>
 
 
-<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
-
 <h2> Player 2 (default) </h2>
 
 <video
   id="player-default"
   class="x-mejs-player"
   width="640" height="360" controls="controls" preload="none" poster="media/OULIFE_student_00147.jpg">
-<source type="video/mp4" src="media/openings-being-an-ou-student.m4v" />
+<source type="video/mp4" src="media/openings-being-an-ou-student.mp4" />
 <track kind="subtitles" srclang="en" type="text/vtt" src="media/ou-student-experiences-openings-captions.srt" />
 </video>
 
@@ -72,11 +69,18 @@ $('#player-default').mediaelementplayer({
 
 // =========================================================
 
-/* FIXES
+/* FIXES.
 */
-if (window.location.href.match(/fix=1/)) {
+$(function () {
 
-  $(".mejs-time-slider").attr("aria-live", "off");
+  if (fixes("TIME_LIVE")) {
+    $(".mejs-time-slider").attr("aria-live", "off");
+
+    log("Fix", "mejs-time-slider: aria-live=off");
+  }
+
+
+  if (fixes("CAPTIONS_LIVE")) {
 
   // Special case!
   $("#mep_0 .mejs-captions-layer > div").attr({
@@ -96,9 +100,16 @@ if (window.location.href.match(/fix=1/)) {
     "data-TEST": 2
   });
 
+    log("Fixes", "mejs-captions..: aria-live=off");
+  }
 
-  log("Fixes", "mejs-time-slider: aria-live=off", "mejs-captions..: aria-live=off");
-}
+
+  function fixes(test) {
+    var re = new RegExp("fix=[^&]*(" + test + "|1)", "i");
+    return re.exec(window.location.href);
+  }
+
+});
 
 
 function log(s) {
