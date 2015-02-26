@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:itunesu="http://www.itunesu.com/feed" xmlns:media="http://search.yahoo.com/mrss/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:oupod="http://purl.org/net/oupod/" xmlns:oup="http://podcast.open.ac.uk/2012" xmlns:s="http://purl.org/steeple" version="2.0">
+<channel>
+  <title>The Student Experience</title>
+  <link>http://www3.open.ac.uk/study/</link>
+  <description>If you have not studied for a long time, doing an OU course can seem a daunting prospect. Find out what’s really involved by listening to these students talking about how they found time for the work; some of the sacrifices involved; whether it had all been worthwhile; and the kind of help they got from their OU tutors. Despite the very real challenges of studying whilst coping with kids, jobs and real life, these people from many different walks of life testify to the great sense of achievement, satisfaction, even excitement involved in tackling a new subject and succeeding.</description>
+  <copyright>The Open University 2008</copyright>
+  <language>en</language>
+  <lastBuildDate>Thu, 14 Feb 2013 05:59:12 +0000</lastBuildDate>
+  <generator>OU Podcast System by KMi</generator>
+  <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+  <atom:link href="http://podcast.open.ac.uk/feeds/student-experiences/player.xml" rel="self" type="application/rss+xml" />
+  <image>
+    <url>http://podcast.open.ac.uk/feeds/student-experiences/OULIFE_student_00147.jpg</url>
+    <title>The Student Experience</title>
+    <link>http://www3.open.ac.uk/study/</link>
+  </image>
+  <media:title>The Student Experience</media:title>
+  <media:description>If you have not studied for a long time, doing an OU course can seem a daunting prospect. Find out what’s really involved by listening to these students talking about how they found time for the work; some of the sacrifices involved; whether it had all been worthwhile; and the kind of help they got from their OU tutors. Despite the very real challenges of studying whilst coping with kids, jobs and real life, these people from many different walks of life testify to the great sense of achievement, satisfaction, even excitement involved in tackling a new subject and succeeding.</media:description>
+  <media:keywords>OU, Student, Knowledge, skills, education, views, opinions, study, university, achievement, home study,  feedback</media:keywords>
+  <media:thumbnail url="http://podcast.open.ac.uk/feeds/student-experiences/OULIFE_student_00147.jpg" />
+  <itunes:subtitle></itunes:subtitle>
+  <itunes:summary>If you have not studied for a long time, doing an OU course can seem a daunting prospect. Find out what’s really involved by listening to these students talking about how they found time for the work; some of the sacrifices involved; whether it had all been worthwhile; and the kind of help they got from their OU tutors. Despite the very real challenges of studying whilst coping with kids, jobs and real life, these people from many different walks of life testify to the great sense of achievement, satisfaction, even excitement involved in tackling a new subject and succeeding.</itunes:summary>
+  <itunes:keywords>OU, Student, Knowledge, skills, education, views, opinions, study, university, achievement, home study,  feedback</itunes:keywords>
+  <itunes:author>The Open University</itunes:author>
+  <itunes:image href="http://podcast.open.ac.uk/feeds/student-experiences/OULIFE_student_00147.jpg" />
+  <itunes:owner>
+    <itunes:name></itunes:name>
+    <itunes:email></itunes:email>
+  </itunes:owner>
+  <itunes:category text="Education" />
+  <itunes:category text="Education">
+    <itunes:category text="Higher Education" />
+  </itunes:category>
+  <atom:category scheme="http://purl.org/ou/blue#" term="OULIFE" label="OU Life"></atom:category>
+  <!--player:ch--><atom:link rel="alternate" type="text/html" title="Permalink for The Student Experience" href="http://podcast.open.ac.uk/pod/student-experiences/" />
+  <!--player:ch--><atom:link rel="related" type="text/html" title="The Student Experience" href="http://www3.open.ac.uk/study/" />
+  <!--player:ch--><atom:link rel="oup:rel-itunes-url" type=""  href="http://deimos.apple.com/WebObjects/Core.woa/Browse/itunes.open.ac.uk.1542410972" />
+  <!--player:ch--><oup:private>0</oup:private>
+  <!--player:ch--><oup:intranet_only>0</oup:intranet_only>
+  <!--player:ch--><oup:deleted>0</oup:deleted>
+  <item>
+    <title>Student views of the OU</title>
+    <description>OU students talking about the benefits to them of studying with the OU.</description>
+    <media:title>Student views of the OU</media:title>
+    <media:description>OU students talking about the benefits to them of studying with the OU.</media:description>
+    <media:keywords>OU, Student, Knowledge, skills, education, views, benefits, opinions, study, university, achievement, experience</media:keywords>
+    <media:thumbnail url="http://podcast.open.ac.uk/feeds/student-experiences/OULIFE_student_00147.jpg" />
+    <itunes:summary>OU students talking about the benefits to them of studying with the OU.</itunes:summary>
+    <itunes:keywords>OU, Student, Knowledge, skills, education, views, benefits, opinions, study, university, achievement, experience</itunes:keywords>
+    <itunes:author>The Open University</itunes:author>
+    <itunes:explicit>No</itunes:explicit>
+    <itunes:subtitle>OU students talking about the benefits to them of studying with the OU.</itunes:subtitle>
+    <link>http://www3.open.ac.uk/about/</link>
+    <guid>http://podcast.open.ac.uk/feeds/student-experiences/openings-being-an-ou-student.m4v</guid>
+    <pubDate>Fri, 16 May 2008 00:08:34 +0100</pubDate>
+    <enclosure url="http://podcast.open.ac.uk/feeds/student-experiences/openings-being-an-ou-student.m4v" length="6534648" type="video/x-m4v" />
+    <media:content url="http://podcast.open.ac.uk/feeds/student-experiences/openings-being-an-ou-student.m4v" fileSize="6534648" type="video/x-m4v" />
+    <itunes:duration>00:00:49</itunes:duration>
+    <atom:link rel="alternate" type="application/pdf" title="Transcript for Student views of the OU" href="http://podcast.open.ac.uk/feeds/student-experiences/transcript/openings-being-an-ou-student.pdf" length="56113" />
+    <!--player:it--><atom:link rel="alternate" type="text/html" title="Permalink for Student views of the OU" href="http://podcast.open.ac.uk/pod/student-experiences/#!db6cc60d6b" />
+    <!--player:it--><atom:link rel="oup:longlink" type="text/html" title="Permalink for Student views of the OU" href="http://podcast.open.ac.uk/pod/student-experiences#!db6cc60d6b" />
+    <!--player:it--><atom:link rel="related" type="text/html" title="" href="http://www3.open.ac.uk/about/" />
+    <!--player:it--><oup:aspect_ratio>0.5625</oup:aspect_ratio>
+    <!--player:it--><atom:category scheme="http://purl.org/steeple/course" term="Y159" label="The Student experience" />
+    <!--player:it--><oup:published_flag>1</oup:published_flag>
+    <!--player:it--><atom:link rel="alternate" type="application/ttml+xml" title="Closed Captions for Student views of the OU" href="http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-being-an-ou-student.xml" />
+    <!--player:it--><atom:link rel="oup:transcript" type="text/html" title="Transcript for Student views of the OU" href="http://podcast.open.ac.uk/feeds/student-experiences/transcript/openings-being-an-ou-student.html" />
+  </item>
+  <item>
+    <title>Finding space and time for studying</title>
+    <description>OU students talking about how they found the space and time to study, and what has kept them motivated.</description>
+    <media:title>Finding space and time for studying</media:title>
+    <media:description>OU students talking about how they found the space and time to study, and what has kept them motivated.</media:description>
+    <media:keywords>OU, Student, Knowledge, skills, education, views, opinions, study, university, achievement, motivation, concerns, time management, home study</media:keywords>
+    <media:thumbnail url="http://podcast.open.ac.uk/feeds/student-experiences/OULIFE_student_00147.jpg" />
+    <itunes:summary>OU students talking about how they found the space and time to study, and what has kept them motivated.</itunes:summary>
+    <itunes:keywords>OU, Student, Knowledge, skills, education, views, opinions, study, university, achievement, motivation, concerns, time management, home study</itunes:keywords>
+    <itunes:author>The Open University</itunes:author>
+    <itunes:explicit>No</itunes:explicit>
+    <itunes:subtitle>OU students talking about how they found the space and time to study, and what has kept them motivated.</itunes:subtitle>
+    <link>http://www3.open.ac.uk/about/</link>
+    <guid>http://podcast.open.ac.uk/feeds/student-experiences/openings-fitting-it-all-in.m4v</guid>
+    <pubDate>Fri, 16 May 2008 00:07:34 +0100</pubDate>
+    <enclosure url="http://podcast.open.ac.uk/feeds/student-experiences/openings-fitting-it-all-in.m4v" length="81561318" type="video/x-m4v" />
+    <media:content url="http://podcast.open.ac.uk/feeds/student-experiences/openings-fitting-it-all-in.m4v" fileSize="81561318" type="video/x-m4v" />
+    <itunes:duration>00:10:12</itunes:duration>
+    <atom:link rel="alternate" type="application/pdf" title="Transcript for Finding space and time for studying" href="http://podcast.open.ac.uk/feeds/student-experiences/transcript/openings-fitting-it-all-in.pdf" length="199120" />
+    <!--player:it--><atom:link rel="alternate" type="text/html" title="Permalink for Finding space and time for studying" href="http://podcast.open.ac.uk/pod/student-experiences/#!f651ac74a3" />
+    <!--player:it--><atom:link rel="oup:longlink" type="text/html" title="Permalink for Finding space and time for studying" href="http://podcast.open.ac.uk/pod/student-experiences#!f651ac74a3" />
+    <!--player:it--><atom:link rel="related" type="text/html" title="" href="http://www3.open.ac.uk/about/" />
+    <!--player:it--><oup:aspect_ratio>0.5625</oup:aspect_ratio>
+    <!--player:it--><atom:category scheme="http://purl.org/steeple/course" term="Y159" label="The Student experience" />
+    <!--player:it--><oup:published_flag>1</oup:published_flag>
+    <!--player:it--><atom:link rel="alternate" type="application/ttml+xml" title="Closed Captions for Finding space and time for studying" href="http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-fitting-it-all-in.xml" />
+    <!--player:it--><atom:link rel="oup:transcript" type="text/html" title="Transcript for Finding space and time for studying" href="http://podcast.open.ac.uk/feeds/student-experiences/transcript/openings-fitting-it-all-in.html" />
+  </item>
+  <item>
+    <title>The tutor experience</title>
+    <description>OU students talking about the experiences that they had with their tutors.</description>
+    <media:title>The tutor experience</media:title>
+    <media:description>OU students talking about the experiences that they had with their tutors.</media:description>
+    <media:keywords>OU, Student, Knowledge, skills, education, contact, study, learning, tutorials, motivation, concerns, tutor, constructive criticism, feedback</media:keywords>
+    <media:thumbnail url="http://podcast.open.ac.uk/feeds/student-experiences/OULIFE_student_00147.jpg" />
+    <itunes:summary>OU students talking about the experiences that they had with their tutors.</itunes:summary>
+    <itunes:keywords>OU, Student, Knowledge, skills, education, contact, study, learning, tutorials, motivation, concerns, tutor, constructive criticism, feedback</itunes:keywords>
+    <itunes:author>The Open University</itunes:author>
+    <itunes:explicit>No</itunes:explicit>
+    <itunes:subtitle>OU students talking about the experiences that they had with their tutors.</itunes:subtitle>
+    <link>http://www3.open.ac.uk/about/</link>
+    <guid>http://podcast.open.ac.uk/feeds/student-experiences/openings-working-with-your-tutor.m4v</guid>
+    <pubDate>Fri, 16 May 2008 00:06:34 +0100</pubDate>
+    <enclosure url="http://podcast.open.ac.uk/feeds/student-experiences/openings-working-with-your-tutor.m4v" length="81848472" type="video/x-m4v" />
+    <media:content url="http://podcast.open.ac.uk/feeds/student-experiences/openings-working-with-your-tutor.m4v" fileSize="81848472" type="video/x-m4v" />
+    <itunes:duration>00:10:14</itunes:duration>
+    <atom:link rel="alternate" type="application/pdf" title="Transcript for The tutor experience" href="http://podcast.open.ac.uk/feeds/student-experiences/transcript/openings-working-with-your-tutor.pdf" length="283244" />
+    <!--player:it--><atom:link rel="alternate" type="text/html" title="Permalink for The tutor experience" href="http://podcast.open.ac.uk/pod/student-experiences/#!54d119e8cb" />
+    <!--player:it--><atom:link rel="oup:longlink" type="text/html" title="Permalink for The tutor experience" href="http://podcast.open.ac.uk/pod/student-experiences#!54d119e8cb" />
+    <!--player:it--><atom:link rel="related" type="text/html" title="" href="http://www3.open.ac.uk/about/" />
+    <!--player:it--><oup:aspect_ratio>0.5625</oup:aspect_ratio>
+    <!--player:it--><atom:category scheme="http://purl.org/steeple/course" term="Y159" label="The Student experience" />
+    <!--player:it--><oup:published_flag>1</oup:published_flag>
+    <!--player:it--><atom:link rel="alternate" type="application/ttml+xml" title="Closed Captions for The tutor experience" href="http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-working-with-your-tutor.xml" />
+    <!--player:it--><atom:link rel="oup:transcript" type="text/html" title="Transcript for The tutor experience" href="http://podcast.open.ac.uk/feeds/student-experiences/transcript/openings-working-with-your-tutor.html" />
+  </item>
+  <item>
+    <title>The best part of studying with the OU</title>
+    <description>OU students talking about how studying with the OU has made them feel.</description>
+    <media:title>The best part of studying with the OU</media:title>
+    <media:description>OU students talking about how studying with the OU has made them feel.</media:description>
+    <media:keywords>OU, student, achievement, improvements, education, learning, course, motivation, degree, confidence, tutor, experience, study</media:keywords>
+    <media:thumbnail url="http://podcast.open.ac.uk/feeds/student-experiences/OULIFE_student_00147.jpg" />
+    <itunes:summary>OU students talking about how studying with the OU has made them feel.</itunes:summary>
+    <itunes:keywords>OU, student, achievement, improvements, education, learning, course, motivation, degree, confidence, tutor, experience, study</itunes:keywords>
+    <itunes:author>The Open University</itunes:author>
+    <itunes:explicit>No</itunes:explicit>
+    <itunes:subtitle>OU students talking about how studying with the OU has made them feel.</itunes:subtitle>
+    <link>http://www3.open.ac.uk/about/</link>
+    <guid>http://podcast.open.ac.uk/feeds/student-experiences/openings-sense-of-achievement.m4v</guid>
+    <pubDate>Fri, 16 May 2008 00:05:34 +0100</pubDate>
+    <enclosure url="http://podcast.open.ac.uk/feeds/student-experiences/openings-sense-of-achievement.m4v" length="25964819" type="video/x-m4v" />
+    <media:content url="http://podcast.open.ac.uk/feeds/student-experiences/openings-sense-of-achievement.m4v" fileSize="25964819" type="video/x-m4v" />
+    <itunes:duration>00:03:27</itunes:duration>
+    <atom:link rel="alternate" type="application/pdf" title="Transcript for The best part of studying with the OU" href="http://podcast.open.ac.uk/feeds/student-experiences/transcript/openings-sense-of-achievement.pdf" length="56791" />
+    <!--player:it--><atom:link rel="alternate" type="text/html" title="Permalink for The best part of studying with the OU" href="http://podcast.open.ac.uk/pod/student-experiences/#!c3411c84a9" />
+    <!--player:it--><atom:link rel="oup:longlink" type="text/html" title="Permalink for The best part of studying with the OU" href="http://podcast.open.ac.uk/pod/student-experiences#!c3411c84a9" />
+    <!--player:it--><atom:link rel="related" type="text/html" title="" href="http://www3.open.ac.uk/about/" />
+    <!--player:it--><oup:aspect_ratio>0.5625</oup:aspect_ratio>
+    <!--player:it--><atom:category scheme="http://purl.org/steeple/course" term="Y159" label="The Student experience" />
+    <!--player:it--><oup:published_flag>1</oup:published_flag>
+    <!--player:it--><atom:link rel="alternate" type="application/ttml+xml" title="Closed Captions for The best part of studying with the OU" href="http://podcast.open.ac.uk/feeds/student-experiences/closed-captions/openings-sense-of-achievement.xml" />
+    <!--player:it--><atom:link rel="oup:transcript" type="text/html" title="Transcript for The best part of studying with the OU" href="http://podcast.open.ac.uk/feeds/student-experiences/transcript/openings-sense-of-achievement.html" />
+  </item>
+</channel>
+</rss>
