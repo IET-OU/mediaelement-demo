@@ -22,6 +22,7 @@
 
 <h2>Interactive Transcript demo</h2>
 
+<div class="desc">
 <p>Try out the interactive transcript by:
 <ol>
   <li> Pressing play and watching the highlighted phrase;
@@ -29,6 +30,7 @@
   <li> Entering a search term...
   <li> Pressing the "T" button in the control bar to show/hide the transcript;
 </ol>
+</div>
 
 
 <video width="640" height="360" controls poster=
@@ -62,6 +64,11 @@ $('video,audio').mediaelementplayer({
   toggleCaptionsButtonWhenOnlyOne: true,
   alwaysShowControls: true
 });
+
+
+if (document.location.href.match( /trace=1/ )) {
+  $('body').addClass('x-trace');
+}
 </script>
 
 

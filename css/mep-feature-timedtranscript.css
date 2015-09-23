@@ -57,3 +57,32 @@ body { background: #fdfdfd; color: #222; }
   height: 352px;
   width: 18em;
 }
+
+
+::-webkit-input-placeholder {
+  color: #777;
+}
+
+
+/* Increase contrast `?trace=1`.
+*/
+.x-trace .desc {
+  display: none;
+}
+.x-trace .mejs-timedtranscript {
+  background: #fff;
+  color: #000;
+  border: 2px solid #555;
+  height: 350px;
+}
+.x-trace .mejs-timedtranscript .hi {
+  outline: 2px solid #666;
+  background: #e8e8e8;
+}
+.x-trace input {
+  border-color: #777;
+  padding: 3px 6px;
+}
+.x-trace ::-webkit-input-placeholder {
+  color: #444;
+}
